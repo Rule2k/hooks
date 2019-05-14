@@ -1,22 +1,19 @@
-/**
- * Npm import
- */
-import React from 'react';
-
-/**
- * Local import
- */
-import Example from 'src/containers/Example';
+import React, { useState } from 'react';
 import './app.scss';
 
-/**
- * Code
- */
-const App = () => (
-  <Example />
-);
-
-/**
- * Export
- */
-export default App;
+export default function App() {
+  const [clicks, setClicks] = useState(0);
+  return (
+    <div id="app">
+      <p>{clicks}</p>
+      <button
+        type="button"
+        onClick={() => {
+          setClicks(...clicks, +1);
+        }}
+      >
+        Cliquez-moi !
+      </button>
+    </div>
+  );
+}
